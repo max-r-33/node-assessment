@@ -61,7 +61,6 @@ app.get('/api/users/:id', function(req, res, next) {
 app.post('/api/users', function(req, res, next) {
     var newId = users[users.length - 1].id + 1;
     var f = [];
-    console.log(req.body.favorites);
     f.push(req.body.favorites);
     var newUser = {
         id: newId,
@@ -83,7 +82,6 @@ app.post('/api/users', function(req, res, next) {
 app.post('/api/users/:type', function(req, res, next) {
     var newId = users[users.length - 1].id + 1;
     var f = [];
-    console.log(req.body.favorites);
     f.push(req.body.favorites);
     var newUser = {
         id: newId,
@@ -131,8 +129,6 @@ app.delete('/api/users/forums/:id', function(req, res, next){
       var usID = req.params.id;
       for (var y = 0; y < users.length; y++) {
         if(users[y].id == usID){
-          console.log(users[y]);
-          console.log(toRemove);
           for (var x = 0; x < users[y].favorites.length; x++) {
             if(users[y].favorites[x] == toRemove || users[y].favorites[x] === undefined){
               users[y].favorites.splice(x, 1);
